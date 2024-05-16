@@ -2,7 +2,11 @@
 export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        openSans: ["Open Sans", "sans-serif"], // Replace default with Open Sans
+      },
+    },
   },
   plugins: [],
 };
