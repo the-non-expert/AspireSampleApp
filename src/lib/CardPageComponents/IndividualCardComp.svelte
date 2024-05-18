@@ -10,7 +10,7 @@
   }
 </script>
 
-<div class="w-6/12">
+<div class="">
   <!-- show card number button -->
   <div
     class="w-full flex justify-end flex gap-1 cursor-pointer on:click={toggleMask}"
