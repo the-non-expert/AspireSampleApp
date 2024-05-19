@@ -1,5 +1,6 @@
 <script>
   import CardFunctions from "./CardFunctions.svelte";
+  import CarouselComponent from "./CarouselComponent.svelte";
   import IndividualCardComp from "./IndividualCardComp.svelte";
   import { myDebitCardDetails } from "./MyDebitCardsDetails.js";
   import RecentTransactions from "./RecentTransactions.svelte";
@@ -8,7 +9,7 @@
 <div class="drop-shadow bg-white p-8 mt-5 rounded-lg flex gap-10">
   <div class="w-6/12">
     <div>
-      <IndividualCardComp />
+      <CarouselComponent cards={myDebitCardDetails} />
     </div>
     <div>
       <CardFunctions />

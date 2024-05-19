@@ -4,6 +4,7 @@
   import cardDetailIcon from "../images/cardDetails.svg";
   import IndividualTransaction from "./IndividualTransaction.svelte";
   import { myRecentTransactions } from "./MyRecentTransactions";
+  import { slide } from "svelte/transition";
 
   let isExpanded = true;
   let isCard = false;
@@ -40,7 +41,7 @@
   </div>
 
   <!-- Recent transactions -->
-  <div class="drop-shadow bg-white rounded-lg">
+  <div class="drop-shadow bg-white rounded-xl">
     <div class="flex justify-between bg-[#F5F9FF] gap-4 p-4 w-full">
       <div class="flex gap-3">
         <img src={transactionIcon} alt="transactionIcon" />
@@ -52,15 +53,21 @@
         src={downArrow}
         alt="down"
         on:click={toggleTransactions}
-        class="cursor-pointer"
+        class="cursor-pointer transition-transform {isExpanded
+          ? 'rotate-180'
+          : ''}"
       />
     </div>
-
     {#if isExpanded}
-      <div>
+      <div transition:slide>
         {#each myRecentTransactions as item}
           <IndividualTransaction data={item} />
         {/each}
+      </div>
+      <div class="bg-[#EDFFF5] flex justify-center p-3 cursor-pointer">
+        <p class="font-openSans font-semibold text-[#01D167]">
+          View all card transactions
+        </p>
       </div>
     {/if}
   </div>

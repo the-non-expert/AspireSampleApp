@@ -27,6 +27,6 @@
   <!-- Amount Display -->
   <div class="flex gap-2">
     <p class="font-bold text-[{data.amountCol}]">{data.amount}</p>
-    <img src={next} alt="next" />
+    <img src={next} alt="next" class="cursor-pointer" />
   </div>
 </div>

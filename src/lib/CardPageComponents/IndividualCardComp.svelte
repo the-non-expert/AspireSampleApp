@@ -5,6 +5,23 @@
 
   let isMasked = true; // State variable to control masking
 
+  export let data = {};
+  console.log(data);
+
+  // Function to format the card number with spaces between every 4 digits
+  function formatCardNumber(number) {
+    return number.match(/.{1,4}/g).join(" ");
+  }
+
+  // Function to generate masked version with dots
+  function getMaskedCardNumber(number) {
+    console.log(number);
+    return "•"
+      .repeat(number.length)
+      .match(/.{1,4}/g)
+      .join(" ");
+  }
+
   function toggleMask() {
     isMasked = !isMasked;
 
@@ -12,54 +29,45 @@
   }
 </script>
 
-<div class="">
+<div class="w-full">
   <!-- show card number button -->
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
-  <div
-    class="w-full flex justify-end flex gap-1 cursor-pointer"
-    on:click={toggleMask}
-  >
+  <div class="flex justify-end flex gap-1 cursor-pointer" on:click={toggleMask}>
     <img src={showNum} alt="show" class="" />
     <p class="font-openSans text-[#01D167] text-xs font-semibold">
       Show card number
     </p>
   </div>
 
-  <!-- card comp -->
-  <div class=" bg-[#01D167] rounded-lg p-6 text-white mt-2">
+  <!-- card component -->
+
+  <div class=" bg-[{data.cardCol}] rounded-lg p-6 text-{data.textCol} mt-2">
     <div class="w-full flex justify-end">
       <img src={logo} alt="aspireLogo" class="w-24" />
     </div>
 
     <div>
       <p class="font-bold text-2xl font-openSans mt-5 tracking-wider">
-        Mark Henry
+        {data.name}
       </p>
-      <p class="text-lg font-openSans mt-6 flex gap-2 items-center">
-        {#if isMasked}
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="pl-1"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="pl-1"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
 
-          <span class="pl-1">2020</span>
+      <!-- card number -->
+      <p
+        class="text-lg font-openSans mt-6 flex gap-2 items-center tracking-widest"
+      >
+        {#if isMasked}
+          <span class="masked">{getMaskedCardNumber(data.cardNum)}</span>
         {:else}
-          <span>1234 5678 9876 2020</span>
+          <span class="tracking-widest font-bold text-2xl">
+            {formatCardNumber(data.cardNum)}
+          </span>
         {/if}
       </p>
+
+      <!-- exp and cvv -->
       <div class="flex gap-10 mt-5 font-openSans font-bold tracking-widest">
-        <p class="text-sm">Thru: 12/20</p>
+        <p class="text-sm">Thru: {data.exp}</p>
         <p class="text-sm">CVV: <span class="">***</span></p>
       </div>
 
@@ -71,11 +79,8 @@
 </div>
 
 <style>
-  .dot {
-    height: 10px;
-    width: 10px;
-    background-color: white;
-    border-radius: 50%;
-    display: inline-block;
+  .masked {
+    font-size: 2rem; /* Adjust the size as needed */
+    letter-spacing: 0.2rem; /* Adjust spacing as needed */
   }
 </style>

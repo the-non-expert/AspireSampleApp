@@ -54,7 +54,7 @@
       <div class="flex gap-5">
         <img src={navButton.image} alt={navButton.alt} />
         <p
-          class="text-lg {navButton.name == isActive
+          class="text-lg cursor-pointer {navButton.name == isActive
             ? 'font-bold text-[#01D167]'
             : ''}"
         >
