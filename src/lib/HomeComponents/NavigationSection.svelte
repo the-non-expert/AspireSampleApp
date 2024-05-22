@@ -1,4 +1,11 @@
-<script>
+<script lang="ts">
+  interface NavItem {
+    id: number;
+    name: string;
+    image: string;
+    alt: string;
+  }
+
   import Logo from "../images/aspireLogo.svg";
   import homeIcon from "../images/Home.svg";
   import cardIcon from "../images/Card.svg";
@@ -6,9 +13,9 @@
   import creditIcon from "../images/Credit.svg";
   import settingIcon from "../images/Account.svg";
 
-  let isActive = "Cards";
+  let isActive: string = "Cards";
 
-  const navItems = [
+  const navItems: NavItem[] = [
     {
       id: 1,
       name: "Home",

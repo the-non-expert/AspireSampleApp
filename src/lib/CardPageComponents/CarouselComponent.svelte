@@ -1,19 +1,29 @@
-<script>
-  import { onMount } from "svelte";
+<script lang="ts">
   import IndividualCardComp from "./IndividualCardComp.svelte";
+  interface Card {
+    id: number;
+    name: string;
+    cardNum: string;
+    exp: string;
+    cvv: string;
+    cardCol: string;
+    textCol: string;
+    isFrozen: boolean;
+  }
 
-  export let cards = [];
-  let currentCardIndex = 0;
+  export let cards: Card[] = [];
+  console.log(cards);
+  let currentCardIndex: number = 0;
 
-  function nextCard() {
+  function nextCard(): void {
     currentCardIndex = (currentCardIndex + 1) % cards.length;
   }
 
-  function prevCard() {
+  function prevCard(): void {
     currentCardIndex = (currentCardIndex - 1 + cards.length) % cards.length;
   }
 
-  function goToCard(index) {
+  function goToCard(index: number): void {
     currentCardIndex = index;
   }
 </script>

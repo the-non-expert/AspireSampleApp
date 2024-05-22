@@ -1,31 +1,50 @@
-<script>
+<script lang="ts">
   import logo from "../images/aspireLogoWhite.svg";
   import showNum from "../images/showNum.svg";
   import visaLogo from "../images/visaLogo.svg";
 
-  let isMasked = true; // State variable to control masking
+  interface CardData {
+    id: number;
+    name: string;
+    cardNum: string;
+    exp: string;
+    cvv: string;
+    cardCol: string;
+    textCol: string;
+    isFrozen: boolean;
+  }
 
-  export let data = {};
-  console.log(data);
+  function createDefaultCardData(): CardData {
+    return {
+      id: 0,
+      name: "",
+      cardNum: "",
+      exp: "",
+      cvv: "",
+      cardCol: "",
+      textCol: "",
+      isFrozen: false,
+    };
+  }
+
+  let isMasked: boolean = true; // State variable to control masking
+
+  export let data: CardData = createDefaultCardData();
 
   // Function to format the card number with spaces between every 4 digits
-  function formatCardNumber(number) {
-    return number.match(/.{1,4}/g).join(" ");
+  function formatCardNumber(number: string) {
+    const matched = number.match(/.{1,4}/g);
+    return matched ? matched.join(" ") : "";
   }
 
   // Function to generate masked version with dots
-  function getMaskedCardNumber(number) {
-    console.log(number);
-    return "•"
-      .repeat(number.length)
-      .match(/.{1,4}/g)
-      .join(" ");
+  function getMaskedCardNumber(number: string) {
+    const matched = "•".repeat(number.length).match(/.{1,4}/g);
+    return matched ? matched.join(" ") : "";
   }
 
-  function toggleMask() {
+  function toggleMask(): void {
     isMasked = !isMasked;
-
-    console.log(isMasked);
   }
 </script>
 

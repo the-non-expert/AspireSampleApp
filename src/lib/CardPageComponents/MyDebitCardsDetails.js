@@ -7,6 +7,7 @@ export const myDebitCardDetails = [
     cvv: "123",
     cardCol: "#01D167",
     textCol: "white",
+    isFrozen: false,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const myDebitCardDetails = [
     cvv: "224",
     cardCol: "#0C365A",
     textCol: "white",
+    isFrozen: false,
   },
   {
     id: 3,
@@ -25,5 +27,6 @@ export const myDebitCardDetails = [
     cvv: "789",
     cardCol: "#01D167",
     textCol: "white",
+    isFrozen: false,
   },
 ];

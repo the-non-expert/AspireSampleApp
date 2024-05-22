@@ -1,5 +1,27 @@
-<script>
-  export let data;
+<script lang="ts">
+  interface TransactionData {
+    id: number;
+    name: string;
+    mode: string;
+    amount: string;
+    dop: string;
+    icon: string;
+    amountCol: string;
+  }
+
+  function createDefaultTransactionData(): TransactionData {
+    return {
+      id: 0,
+      name: "",
+      mode: "",
+      amount: "",
+      dop: "",
+      icon: "",
+      amountCol: "",
+    };
+  }
+
+  export let data: TransactionData = createDefaultTransactionData();
 
   import smallCard from "../images/smallCard.svg";
   import next from "../images/next.svg";

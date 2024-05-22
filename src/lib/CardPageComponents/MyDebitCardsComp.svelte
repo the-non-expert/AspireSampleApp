@@ -1,7 +1,6 @@
-<script>
+<script lang="ts">
   import CardFunctions from "./CardFunctions.svelte";
   import CarouselComponent from "./CarouselComponent.svelte";
-  import IndividualCardComp from "./IndividualCardComp.svelte";
   import { myDebitCardDetails } from "./MyDebitCardsDetails.js";
   import RecentTransactions from "./RecentTransactions.svelte";
 </script>

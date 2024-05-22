@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import downArrow from "../images/downArrow.svg";
   import transactionIcon from "../images/transactionIcon.svg";
   import cardDetailIcon from "../images/cardDetails.svg";
@@ -6,14 +6,14 @@
   import { myRecentTransactions } from "./MyRecentTransactions";
   import { slide } from "svelte/transition";
 
-  let isExpanded = true;
-  let isCard = false;
+  let isExpanded: boolean = true;
+  let isCard: boolean = false;
 
-  function toggleTransactions() {
+  function toggleTransactions(): void {
     isExpanded = !isExpanded;
   }
 
-  function toggleCardDetails() {
+  function toggleCardDetails(): void {
     isCard = !isCard;
   }
 </script>

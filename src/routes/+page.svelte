@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import BalanceAndAdd from "../lib/CardPageComponents/BalanceAndAdd.svelte";
   import Tabs from "../lib/CardPageComponents/Tabs.svelte";
 </script>

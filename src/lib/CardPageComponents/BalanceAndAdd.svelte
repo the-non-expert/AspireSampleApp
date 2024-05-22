@@ -1,5 +1,7 @@
-<script>
+<script lang="ts">
   import addIcon from "../images/addIcon.svg";
+
+  let balance: number = 3000;
 </script>
 
 <div class="">
@@ -13,7 +15,7 @@
       >
         S$
       </p>
-      <p class="font-bold text-3xl leading-5">3,000</p>
+      <p class="font-bold text-3xl leading-5">{balance}</p>
     </div>
     <button
       class="flex items-center justify-center bg-[#325BAF] text-white px-4 py-2 rounded-md"

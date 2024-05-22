@@ -1,11 +1,17 @@
-<script>
+<script lang="ts">
+  interface cardFuntions {
+    id: number;
+    name: string;
+    icon: string;
+  }
+
   import freezeCard from "../images/freezeCard.svg";
   import spendLimit from "../images/spendLimit.svg";
   import gpay from "../images/GPay.svg";
   import replaceCard from "../images/replaceCard.svg";
   import cancelCard from "../images/cancelCard.svg";
 
-  const cardFunc = [
+  const cardFunc: cardFuntions[] = [
     {
       id: 1,
       name: "Freeze card",
